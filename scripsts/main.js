@@ -4,10 +4,6 @@ const scor = document.querySelector(".scor");
 const pesteButton = document.querySelector(".peste");
 const nonPesteButton = document.querySelector(".nonPeste");
 
-let pozeAfisate = 3;
-
-scor.innerHTML = `scorul tau este: 0 / ${images.length}`;
-
 let pozeleMele = [...images];
 const p1 = pozeleMele.pop();
 const p2 = pozeleMele.pop();
@@ -23,7 +19,10 @@ poze.innerHTML = [p1, p2, p3]
   .join("");
 
 let semafor = true;
-const time = 100;
+const time = 200;
+const modal = document.querySelector(".modal");
+
+let greseli = 0;
 
 pesteButton.addEventListener("click", () => {
   if (!semafor) return false;
@@ -33,12 +32,23 @@ pesteButton.addEventListener("click", () => {
   const prima = document.querySelector(".prima");
 
   aTreiaVeche.classList.add("inRobot");
-  aDoua.classList.add("aTreia");
-  aDoua.classList.remove("aDoua");
+  if (aTreiaVeche.dataset.type != "peste") greseli++;
+
+  if (aDoua) {
+    aDoua.classList.add("aTreia");
+    aDoua.classList.remove("aDoua");
+  }
 
   if (prima) {
     prima.classList.add("aDoua");
     prima.classList.remove("prima");
+  }
+  if (!aDoua) {
+    if (greseli != 0) {
+      modal.innerHTML = `<div class="text"> Ne pare rau <br />
+        Ai facut ${greseli} greseli !!! </div>`;
+    }
+    modal.classList.add("show");
   }
 
   setTimeout(() => {
@@ -59,12 +69,23 @@ nonPesteButton.addEventListener("click", () => {
   const prima = document.querySelector(".prima");
 
   aTreiaVeche.classList.add("gunoi");
-  aDoua.classList.add("aTreia");
-  aDoua.classList.remove("aDoua");
+  if (aTreiaVeche.dataset.type == "peste") greseli++;
+  if (aDoua) {
+    aDoua.classList.add("aTreia");
+    aDoua.classList.remove("aDoua");
+  }
 
   if (prima) {
     prima.classList.add("aDoua");
     prima.classList.remove("prima");
+  }
+
+  if (!aDoua) {
+    if (greseli != 0) {
+      modal.innerHTML = `<div class="text"> Ne pare rau <br />
+        Ai facut ${greseli} greseli !!! </div>`;
+    }
+    modal.classList.add("show");
   }
 
   setTimeout(() => {
