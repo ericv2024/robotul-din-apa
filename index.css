@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+}
+
+p {
+    background-color: blue;
+    margin: 0;
+}
+
+.robot {
+    width: 20vw;
+    position: absolute;
+    bottom: 120px;
+    right: 20px;
+}
+
+.poze {
+    background-color: red;
+    height: 320px;
+    overflow:hidden;
+    width: calc(100% - 20vw - 20px);
+    position: absolute;
+    bottom: 120px;
+    left: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.poze img {
+    height: 300px;
+    width: 20vw;
+    object-fit: cover;
+    display: inline-block;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 40px;
+}
+
+.buttons .button{
+  font-size: 30px;
+  border: 1px solid red;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+}
