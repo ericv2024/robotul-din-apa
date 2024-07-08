@@ -1,10 +1,18 @@
 import images from "./images.js";
 const poze = document.querySelector(".poze");
+const scor = document.querySelector(".scor");
 
-let pozeAfisate = 3
+let pozeAfisate = 3;
 
-const pozeleMele = images.slice(images.length - pozeAfisate)
+scor.innerHTML = `scorul tau este: 0 / ${images.length}`
 
-poze.innerHTML = pozeleMele.map(
-  (img) => ` <img src="${img.src}">`
-).join();
+const pozeleMele = images.slice(images.length - pozeAfisate);
+
+poze.innerHTML = pozeleMele
+  .map(
+    (img, index) =>
+      ` <img src="${img.src}" data-type="${img.type}" class="${
+        index == 0 ? "prima" : index == 1 ? "aDoua" : "aTreia"
+      }">`
+  )
+  .join();

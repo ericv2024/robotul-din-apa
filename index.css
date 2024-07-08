@@ -1,10 +1,14 @@
 body {
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
     background-color: blue;
+    color: aliceblue;
     margin: 0;
+    text-align: center;
+    padding: 10px;
 }
 
 .robot {
@@ -15,7 +19,6 @@ p {
 }
 
 .poze {
-    background-color: red;
     height: 320px;
     overflow:hidden;
     width: calc(100% - 20vw - 20px);
@@ -35,6 +38,15 @@ p {
     display: inline-block;
     margin-right: 20px;
     border-radius: 10px;
+}
+.poze img.prima{
+    transform: scale(0.4);
+}
+.poze img.aDoua{
+    transform: scale(0.6);
+}
+.poze img.aTreia{
+    transform: scale(1);
 }
 
 .buttons {
